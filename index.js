@@ -46,7 +46,19 @@ let studentWild = [
         proObjective:'',
         quote:'',
         image: 'https://placebear.com/200/300',
-    }
+    },
+    {
+        firstName: 'Sybill',
+        lastName: 'Gribonval',
+        promo: 'TSSR',
+        birthDate: '08/01/1992',
+        github:'https://github.com/Mirhazka',
+        linkedin:'https://www.linkedin.com/in/sybill-gribonval-0ab964165/',
+        hobbies:'Jeux vidéo & Manga',
+        proObjective:'',
+        quote:'',
+        image: 'https://placebear.com/g/200/300',
+    },
 ]
 function creatCard(student){
     const trombinoscope = document.querySelector(".trombinoscope");
@@ -55,6 +67,7 @@ function creatCard(student){
     trombinoscope.appendChild(article);
      //Img
     const img = document.createElement("img");
+    img.classList.add("studentPicture");
     img.src = student.image;
     console.log(student.image);
     img.alt = `Photo de ${student.firstName} ${student.lastName}`;
@@ -66,18 +79,28 @@ function creatCard(student){
     studentName.textContent = `${student.firstName} ${student.lastName}`;
     article.appendChild(studentName);
 
-    //Linkedin-Github
+    //Linkedin
     const linkedinRef = document.createElement("a");
-    linkedinRef.classList.add("link");
+    linkedinRef.classList.add("linkedin");
     linkedinRef.href = "https://www.linkedin.com/in/tonprofil/";
-    linkedinRef.textContent = "Mon LinkedIn";
     linkedinRef.target = "_blank";
-
+    linkedinRef.ariaLabel = "Lien vers Linkedin";
+    article.appendChild(linkedinRef);
+    //Github
     const GithubRef = document.createElement("a");
-    GithubRef.classList.add("link");
+    GithubRef.classList.add("github");
     GithubRef.href = "https://www.github.com";
-    GithubRef.textContent = "Mon Github";
+    GithubRef.ariaLabel = "Lien vers Github";
     GithubRef.target = "_blank";
+    article.appendChild(GithubRef);
+
+    if (student.promo === "DevWeb"){
+        article.classList.add("devWeb");
+    } else if (student.promo === "Data") {
+        article.classList.add("data");
+    } else if (student.promo === "TSSR") {
+        article.classList.add("tssr");
+    }
 };
 studentWild.forEach((studentWild) => {
     creatCard(studentWild);

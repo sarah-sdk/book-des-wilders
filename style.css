@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 header {
     display: flex;
     height: 15vh;
@@ -43,16 +44,21 @@ li>a {
     text-decoration: none;
 }
 
-body{
+body {
     background-color:  #F4F5F6;
 }
 
 main {
 height: 70vh;
+text-align: left;
 }
-footer{
+
+h1 {
+    text-align: center;
+}
+
+footer {
     background-color: #023047;
-    height: 15vh;
 }
 footer > p{
     color: #F4F5F6;
@@ -72,4 +78,56 @@ footer > ul{
 .ClassLiFooter{
     text-align: center;
     width: 3rem;
+}
+=======
+    height: 15vh;
+}
+
+.devWeb {
+    border: 3px solid blue;
+}
+.data{
+    border: 3px solid red;
+}
+.tssr{
+    border: 3px solid yellow;
+}
+
+@media screen and (min-width: 1024px){
+    .trombinoscope {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 20px;
+    }    
+    article{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-radius: 10px;
+      width: 12rem;
+      margin: 20px;
+      flex-direction: column;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      justify-items: center;
+    }
+    .studentPicture{
+        grid-column: span 2;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 5rem;
+    }
+    .name{
+        grid-column: span 2;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .linkedin::before{
+        content: url("images/linkedin.svg");
+    }
+    .github::before{
+        content: url("images/github.svg");
+    }
 }
