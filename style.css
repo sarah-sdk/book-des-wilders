@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 header {
     display: flex;
     height: 15vh;
@@ -43,14 +44,28 @@ li>a {
     text-decoration: none;
 }
 
-body{
+body {
     background-color:  #F4F5F6;
 }
 
 main {
 height: 75vh;
+text-align: left;
 }
-footer{
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+footer {
     background-color: #023047;
     height: 10vh;
-}
+    }
+
+
+    p  { padding-top: 2rem;
+        text-align: center;
+        
+    }
+    
