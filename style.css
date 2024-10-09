@@ -54,3 +54,41 @@ footer{
     background-color: #023047;
     height: 10vh;
 }
+@media screen and (min-width: 1024px){
+    .trombinoscope {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 20px;
+    }    
+    article{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-radius: 10px;
+      width: 12rem;
+      margin: 20px;
+      flex-direction: column;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      justify-items: center;
+    }
+    .studentPicture{
+        grid-column: span 2;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 5rem;
+    }
+    .name{
+        grid-column: span 2;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .linkedin::before{
+        content: url("images/linkedin.svg");
+    }
+    .github::before{
+        content: url("images/github.svg");
+    }
+}
