@@ -61,20 +61,53 @@ h1 {
 footer {
     background-color: #023047;
     height: 10vh;
-    }
+}
 
+.devWeb {
+    border: 3px solid blue;
+}
+.data{
+    border: 3px solid red;
+}
+.tssr{
+    border: 3px solid yellow;
+}
 
-    p  { padding-top: 2rem;
-        text-align: center;
-        
+@media screen and (min-width: 1024px){
+    .trombinoscope {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 20px;
+    }    
+    article{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-radius: 10px;
+      width: 12rem;
+      margin: 20px;
+      flex-direction: column;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      justify-items: center;
     }
-
-    .devWeb {
-        border: 3px solid blue;
+    .studentPicture{
+        grid-column: span 2;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 5rem;
     }
-    .data{
-        border: 3px solid red;
+    .name{
+        grid-column: span 2;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
     }
-    .tssr{
-        border: 3px solid yellow;
+    .linkedin::before{
+        content: url("images/linkedin.svg");
     }
+    .github::before{
+        content: url("images/github.svg");
+    }
+}
