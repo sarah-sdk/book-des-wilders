@@ -55,6 +55,7 @@ function creatCard(student){
     trombinoscope.appendChild(article);
      //Img
     const img = document.createElement("img");
+    img.classList.add("studentPicture");
     img.src = student.image;
     console.log(student.image);
     img.alt = `Photo de ${student.firstName} ${student.lastName}`;
@@ -66,18 +67,20 @@ function creatCard(student){
     studentName.textContent = `${student.firstName} ${student.lastName}`;
     article.appendChild(studentName);
 
-    //Linkedin-Github
+    //Linkedin
     const linkedinRef = document.createElement("a");
-    linkedinRef.classList.add("link");
+    linkedinRef.classList.add("linkedin");
     linkedinRef.href = "https://www.linkedin.com/in/tonprofil/";
-    linkedinRef.textContent = "Mon LinkedIn";
     linkedinRef.target = "_blank";
-
+    linkedinRef.ariaLabel = "Lien vers Linkedin";
+    article.appendChild(linkedinRef);
+    //Github
     const GithubRef = document.createElement("a");
-    GithubRef.classList.add("link");
+    GithubRef.classList.add("github");
     GithubRef.href = "https://www.github.com";
-    GithubRef.textContent = "Mon Github";
+    GithubRef.ariaLabel = "Lien vers Github";
     GithubRef.target = "_blank";
+    article.appendChild(GithubRef);
 };
 studentWild.forEach((studentWild) => {
     creatCard(studentWild);
