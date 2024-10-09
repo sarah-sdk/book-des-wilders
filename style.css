@@ -62,6 +62,17 @@ footer {
     background-color: #023047;
     height: 10vh;
 }
+
+.devWeb {
+    border: 3px solid blue;
+}
+.data{
+    border: 3px solid red;
+}
+.tssr{
+    border: 3px solid yellow;
+}
+
 @media screen and (min-width: 1024px){
     .trombinoscope {
         display: flex;
