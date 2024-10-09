@@ -20,8 +20,7 @@ header {
     left: 50%;
     transform: translate(-50%,-50%);
 }
-
-ul {
+.classListLien {
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -34,8 +33,9 @@ ul>li {
     width: 200px;
 
 }
-li:first-of-type{
+.classTrombi{
     text-align: end;
+   margin-left: .7rem;
 }
 
 li>a {
@@ -48,9 +48,28 @@ body{
 }
 
 main {
-height: 75vh;
+height: 70vh;
 }
 footer{
     background-color: #023047;
-    height: 10vh;
+    height: 15vh;
+}
+footer > p{
+    color: #F4F5F6;
+    text-align: center;
+    padding: .4rem;
+}   
+.logo-rond-footer{
+    border: 1px solid #f1f0f0;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+}
+footer > ul{
+    display: flex;
+    justify-content: center;
+}
+.ClassLiFooter{
+    text-align: center;
+    width: 3rem;
 }
