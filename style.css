@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 header {
     display: flex;
     height: 15vh;
@@ -20,8 +21,7 @@ header {
     left: 50%;
     transform: translate(-50%,-50%);
 }
-
-ul {
+.classListLien {
     display: flex;
     justify-content: center;
     width: 100vw;
@@ -34,8 +34,9 @@ ul>li {
     width: 200px;
 
 }
-li:first-of-type{
+.classTrombi{
     text-align: end;
+   margin-left: .7rem;
 }
 
 li>a {
@@ -43,17 +44,55 @@ li>a {
     text-decoration: none;
 }
 
-body{
+body {
     background-color:  #F4F5F6;
 }
 
 main {
-height: 75vh;
+height: 70vh;
+text-align: left;
 }
-footer{
+
+h1 {
+    text-align: center;
+}
+
+footer {
     background-color: #023047;
-    height: 10vh;
 }
+footer > p{
+    color: #F4F5F6;
+    text-align: center;
+    padding: .4rem;
+}   
+.logo-rond-footer{
+    border: 1px solid #f1f0f0;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+}
+footer > ul{
+    display: flex;
+    justify-content: center;
+}
+.ClassLiFooter{
+    text-align: center;
+    width: 3rem;
+}
+=======
+    height: 15vh;
+}
+
+.devWeb {
+    border: 3px solid blue;
+}
+.data{
+    border: 3px solid red;
+}
+.tssr{
+    border: 3px solid yellow;
+}
+
 @media screen and (min-width: 1024px){
     .trombinoscope {
         display: flex;
