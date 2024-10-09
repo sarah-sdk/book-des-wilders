@@ -46,7 +46,19 @@ let studentWild = [
         proObjective:'',
         quote:'',
         image: 'https://placebear.com/200/300',
-    }
+    },
+    {
+        firstName: 'Sybill',
+        lastName: 'Gribonval',
+        promo: 'TSSR',
+        birthDate: '08/01/1992',
+        github:'https://github.com/Mirhazka',
+        linkedin:'https://www.linkedin.com/in/sybill-gribonval-0ab964165/',
+        hobbies:'Jeux vidéo & Manga',
+        proObjective:'',
+        quote:'',
+        image: 'https://placebear.com/g/200/300',
+    },
 ]
 function creatCard(student){
     const trombinoscope = document.querySelector(".trombinoscope");
@@ -78,6 +90,14 @@ function creatCard(student){
     GithubRef.href = "https://www.github.com";
     GithubRef.textContent = "Mon Github";
     GithubRef.target = "_blank";
+
+    if (student.promo === "DevWeb"){
+        article.classList.add("devWeb");
+    } else if (student.promo === "Data") {
+        article.classList.add("data");
+    } else if (student.promo === "TSSR") {
+        article.classList.add("tssr");
+    }
 };
 studentWild.forEach((studentWild) => {
     creatCard(studentWild);

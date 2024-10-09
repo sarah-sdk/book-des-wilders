@@ -68,4 +68,13 @@ footer {
         text-align: center;
         
     }
-    
+
+    .devWeb {
+        border: 3px solid blue;
+    }
+    .data{
+        border: 3px solid red;
+    }
+    .tssr{
+        border: 3px solid yellow;
+    }
