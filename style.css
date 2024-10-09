@@ -59,6 +59,7 @@ h1 {
 
 footer {
     background-color: #023047;
+    height: 15vh;
 }
 footer > p{
     color: #F4F5F6;
@@ -78,9 +79,6 @@ footer > ul{
 .ClassLiFooter{
     text-align: center;
     width: 3rem;
-}
-=======
-    height: 15vh;
 }
 
 .devWeb {
