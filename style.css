@@ -91,6 +91,10 @@ footer > ul{
     border: 3px solid yellow;
 }
 
+.studentPicture{
+    height: 5rem;
+}
+
 @media screen and (min-width: 1024px){
     .trombinoscope {
         display: flex;
