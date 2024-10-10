@@ -148,3 +148,22 @@ function creatCardRecto(student){
 studentWild.forEach((studentWild) => {
     creatCardRecto(studentWild);
 });
+
+const promoFilter = document.querySelector('#promoFilter');
+
+promoFilter.addEventListener('change', function (){
+    const selectedPromo = promoFilter.value;
+    const trombi = document.querySelector('section');
+    trombi.innerHTML = '';
+    studentWild.forEach((student) => {
+        if (selectedPromo === 'devWeb' && student.promo === 'DevWeb') {
+            creatCard(student);
+        } else if (selectedPromo === 'data' && student.promo === 'Data') {
+            creatCard(student);
+        } else if (selectedPromo === 'tssr' && student.promo === 'TSSR') {
+            creatCard(student);
+        } else if (selectedPromo === 'all'){
+            creatCard(student);
+        }
+    });
+});
