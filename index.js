@@ -1,7 +1,8 @@
 import studentWild from "./tableau.js";
 console.log(studentWild);
 
-function creatCard(student){
+   //Recto card
+   function creatCardRecto(student){
     const trombinoscope = document.querySelector(".trombinoscope");
     //elem carte
     const article = document.createElement("article");
@@ -13,13 +14,11 @@ function creatCard(student){
     console.log(student.image);
     img.alt = `Photo de ${student.firstName} ${student.lastName}`;
     article.appendChild(img);
-
     //nom
     const studentName = document.createElement("h2");
     studentName.classList.add("name");
     studentName.textContent = `${student.firstName} ${student.lastName}`;
     article.appendChild(studentName);
-
     //Linkedin
     const linkedinRef = document.createElement("a");
     linkedinRef.classList.add("linkedin");
@@ -34,6 +33,50 @@ function creatCard(student){
     GithubRef.ariaLabel = "Lien vers Github";
     GithubRef.target = "_blank";
     article.appendChild(GithubRef);
+    
+//Date de naissance (chiffre + text)
+    if(student.birthDate){
+    const studentBirthDate = document.createElement("h3");
+    studentBirthDate.classList.add("agetext");
+    studentBirthDate.textContent ="Date de naissance :";
+    article.appendChild(studentBirthDate); 
+
+    const studentAge = document.createElement("p");
+    studentAge.classList.add("age");
+    studentAge.textContent =`${student.birthDate}`;
+    article.appendChild(studentAge);
+    }
+    //Hobbies
+    if(student.hobbies){
+    const studentHobbies = document.createElement("h3");
+    studentHobbies.classList.add("Hobbies");
+    studentHobbies.textContent =`${student.hobbies}`;
+    article.appendChild(studentHobbies);
+    }
+    //Objectif titre
+    if(student.proObjective){
+        const proObject = document.createElement("h3");
+    proObject.classList.add("objectifpro");
+    proObject.textContent ="Objectif professionnel";
+    article.appendChild(proObject);
+    //Objectif text
+    const proObjectText = document.createElement("p");
+    proObjectText.classList.add("objectifprotext");
+    proObjectText.textContent = `${student.proObjective}`;
+    article.appendChild(proObjectText);
+    }
+    //citation-anecdote
+    if(student.quote){
+    const citaAnec = document.createElement("h3");
+    citaAnec.classList.add("citaAnecTitre");
+    citaAnec.textContent = "Anecdote-Citation";
+    article.appendChild(citaAnec);
+    //citation-anecdote text
+    const citaAnecText = document.createElement("p");
+    citaAnecText.classList.add("citaanectext");
+    citaAnecText.textContent =`${student.quote}`;
+    article.appendChild(citaAnecText);
+    }
 
     if (student.promo === "DevWeb"){
         article.classList.add("devWeb");
@@ -44,7 +87,7 @@ function creatCard(student){
     }
 };
 studentWild.forEach((studentWild) => {
-    creatCard(studentWild);
+    creatCardRecto(studentWild);
 });
 
 const promoFilter = document.querySelector('#promoFilter');
