@@ -4,6 +4,9 @@
     padding: 0;
 }
 
+body {
+    height: 100vh;
+}
 
 header {
     display: flex;
@@ -21,6 +24,7 @@ header {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
 .classListLien {
     display: flex;
     justify-content: center;
@@ -34,6 +38,7 @@ ul>li {
     width: 200px;
 
 }
+
 .classTrombi{
     text-align: end;
    margin-left: .7rem;
@@ -50,7 +55,8 @@ body {
 
 main {
 text-align: left;
-height: 70vh;
+background-image: url("./images/background.webp");
+background-opacity: .75;
 }
 
 h1 {
@@ -61,35 +67,46 @@ footer {
     background-color: #023047;
     height: 15vh;
 }
+
 footer > p{
     color: #F4F5F6;
     text-align: center;
     padding: .4rem;
-    
-}   
+}
+
 .logo-rond-footer{
     border: 1px solid #f1f0f0;
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
+
 footer > ul{
     display: flex;
     justify-content: center;
 }
+
 .ClassLiFooter{
     text-align: center;
     width: 3rem;
 }
 
 .devWeb {
-    border: 3px solid blue;
+    border: 2px solid rgb(46, 46, 196);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .data{
-    border: 3px solid red;
+    border: 2px solid rgb(182, 5, 5);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .tssr{
-    border: 3px solid yellow;
+    border: 2px solid rgb(114, 20, 143);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .studentPicture{
@@ -107,13 +124,12 @@ article{
     min-width: 100%;
     scroll-snap-align: start;
     background-color: #f1f1f1;
-  
-     text-align: center;
-     border-radius: 33px;
+    text-align: center;
+    border-radius: 10px;
+    height: 22rem;
 }
 
 section {
-  height: 50vh;
   margin: 1rem;
 }
 
@@ -125,7 +141,6 @@ section {
 /* Conteneur d'une carte avec perspective */
 .card {
   width: 100%;
-  height: 400px;
   position: relative;
   perspective: 1000px; /* Nécessaire pour donner l'effet de profondeur */
 }
@@ -133,13 +148,11 @@ section {
 /* Carte qui tourne sur l'axe Y */
 .card-front, .card-back {
   width: 100%;
-  height: 100%;
+  height: 22rem;
   position: absolute;
   backface-visibility: hidden; /* Masque l'arrière quand elle tourne */
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.6s; /* Animation de rotation */
   transform-style: preserve-3d;
 }
@@ -148,7 +161,6 @@ section {
 .card-front {
   background-color: #f8f8f8;
   z-index: 2; /* Assure que le recto soit au-dessus par défaut */
-  padding : 14px;
 }
 
 /* Verso de la carte (caché par défaut) */
@@ -219,4 +231,6 @@ section {
         padding: 20px;
         
       }
-      
+    
+    
+}
