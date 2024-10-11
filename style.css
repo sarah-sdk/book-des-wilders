@@ -50,6 +50,7 @@ body {
 
 main {
 text-align: left;
+height: 70vh;
 }
 
 h1 {
@@ -64,6 +65,7 @@ footer > p{
     color: #F4F5F6;
     text-align: center;
     padding: .4rem;
+    
 }   
 .logo-rond-footer{
     border: 1px solid #f1f0f0;
@@ -92,6 +94,7 @@ footer > ul{
 
 .studentPicture{
     height: 5rem;
+    height: 15vh;
 }
 
 section{
@@ -106,6 +109,18 @@ article{
     background-color: #f1f1f1;
   
      text-align: center;
+     border-radius: 33px;
+}
+
+section {
+  height: 50vh;
+  margin: 1rem;
+}
+
+.trombinoscope {
+  border-radius: 33px;
+  border-left: 10rem;
+  border-right: 10rem;
 }
 /* Conteneur d'une carte avec perspective */
 .card {
@@ -202,7 +217,6 @@ article{
         gap: 20px; /* Espace entre les cartes */
         justify-items: center; /* Centrer les cartes dans les colonnes */
         padding: 20px;
+        
       }
-      
-      
-}
+    }

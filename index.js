@@ -49,8 +49,6 @@ function createCard(student) {
     githubRef.ariaLabel= "Lien vers Github";
     cardFront.appendChild(githubRef);
 
-    // Informations détaillées au verso (dans un footer)
-
     // Date de naissance (utilisation de time pour la date)
     if (student.birthDate) {
         const studentBirthDate = document.createElement("h3");
