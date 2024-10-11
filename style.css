@@ -90,21 +90,6 @@ footer > ul{
 .tssr{
     border: 3px solid yellow;
 }
-/*Styles carrousel pour mobile (par défaut) */
-.trombinoscope {
-  display: flex;
-  overflow: scroll;
-  scroll-snap-type: x mandatory;
-}
-
-.slide {
- /* Chaque slide prend toute la largeur de l'écran */
-    min-width: 100%; 
-  scroll-snap-align: start;
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-}
 
 @media screen and (min-width: 1024px){
     .trombinoscope {
