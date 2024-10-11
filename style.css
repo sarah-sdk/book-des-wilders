@@ -83,12 +83,15 @@ footer > ul{
 
 .devWeb {
     border: 3px solid blue;
+    border-radius: 10px;
 }
 .data{
     border: 3px solid red;
+    border-radius: 10px;
 }
 .tssr{
     border: 3px solid yellow;
+    border-radius: 10px;
 }
 
 .studentPicture{
@@ -105,9 +108,18 @@ article{
     min-width: 100%;
     scroll-snap-align: start;
     background-color: #f1f1f1;
-    padding: 20px;
      text-align: center;
 }
+.card-front{
+    background-image: url(images/15186165_5566879.jpg);
+    background-size: cover;
+}
+.name{
+    color: midnightblue;
+    font-family: "Geologica", sans-serif;
+}
+
+
 
 @media screen and (min-width: 1024px){
     /* Conteneur des cartes */
@@ -135,7 +147,6 @@ article{
         backface-visibility: hidden; /* Masque l'arrière quand elle tourne */
         border: 1px solid #ddd;
         border-radius: 10px;
-        padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: transform 0.6s; /* Animation de rotation */
         transform-style: preserve-3d;
@@ -174,18 +185,16 @@ article{
         font-size: 1.5rem;
         margin-top: 10px;
       }
-      
-      .linkedin::before{
-        content: url("images/linkedin.svg");
-    }
-    .github::before{
-        content: url("images/github.svg");
-    }
-      
-      .github {
-        color: #333; /* Couleur sombre pour GitHub */
+      .github img, .linkedin img {
+        width: 5rem;
+        height: 2rem;
+        margin: 0 10px;
+        margin-top: 2rem;
       }
       
+      .github:hover img, .linkedin:hover img {
+        transform: scale(1.1); /* Agrandir légèrement au survol */
+      }
       /* Style du contenu au verso */
       .card-back h3 {
         margin-top: 10px;
