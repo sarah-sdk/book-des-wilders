@@ -2,81 +2,103 @@ import studentWild from "./tableau.js";
 console.log(studentWild);
 
 
-   function createCard(student){
+function createCard(student) {
     const trombinoscope = document.querySelector(".trombinoscope");
-    //elem carte
+
+    // Carte conteneur avec la classe 'card'
     const article = document.createElement("article");
+    article.classList.add("card");
     trombinoscope.appendChild(article);
-     //Img
+
+    // Recto de la carte (utilisation de figure pour l'image et figcaption pour le texte)
+    const cardFront = document.createElement("figure");
+    cardFront.classList.add("card-front");
+    article.appendChild(cardFront);
+
+    // Verso de la carte (footer pour les détails)
+    const cardBack = document.createElement("footer");
+    cardBack.classList.add("card-back");
+    article.appendChild(cardBack);
+
+    // Image au recto (dans figure)
     const img = document.createElement("img");
     img.classList.add("studentPicture");
     img.src = student.image;
-    console.log(student.image);
     img.alt = `Photo de ${student.firstName} ${student.lastName}`;
-    article.appendChild(img);
-    //nom
-    const studentName = document.createElement("h2");
+    cardFront.appendChild(img);
+
+    // Nom de l'étudiant dans une légende (figcaption)
+    const studentName = document.createElement("figcaption");
     studentName.classList.add("name");
     studentName.textContent = `${student.firstName} ${student.lastName}`;
-    article.appendChild(studentName);
-    //Linkedin
+    cardFront.appendChild(studentName);
+
+    // Lien LinkedIn au recto
     const linkedinRef = document.createElement("a");
     linkedinRef.classList.add("linkedin");
-    linkedinRef.href = "https://www.linkedin.com/in/tonprofil/";
+    linkedinRef.href = student.linkedin || "#";  // Lien vers LinkedIn spécifique ou par défaut
     linkedinRef.target = "_blank";
     linkedinRef.ariaLabel = "Lien vers Linkedin";
-    article.appendChild(linkedinRef);
-    //Github
-    const GithubRef = document.createElement("a");
-    GithubRef.classList.add("github");
-    GithubRef.href = "https://www.github.com";
-    GithubRef.ariaLabel = "Lien vers Github";
-    GithubRef.target = "_blank";
-    article.appendChild(GithubRef);
-    
-//Date de naissance (chiffre + text)
-    if(student.birthDate){
-    const studentBirthDate = document.createElement("h3");
-    studentBirthDate.classList.add("agetext");
-    studentBirthDate.textContent ="Date de naissance :";
-    article.appendChild(studentBirthDate); 
+    cardFront.appendChild(linkedinRef);
 
-    const studentAge = document.createElement("p");
-    studentAge.classList.add("age");
-    studentAge.textContent =`${student.birthDate}`;
-    article.appendChild(studentAge);
+    // Lien GitHub au recto
+    const githubRef = document.createElement("a");
+    githubRef.classList.add("github");
+    githubRef.href = student.github || "#";  // Lien vers GitHub spécifique ou par défaut
+    githubRef.target = "_blank";
+    githubRef.ariaLabel= "Lien vers Github";
+    cardFront.appendChild(githubRef);
+
+    // Informations détaillées au verso (dans un footer)
+
+    // Date de naissance (utilisation de time pour la date)
+    if (student.birthDate) {
+        const studentBirthDate = document.createElement("h3");
+        studentBirthDate.textContent = "Date de naissance :";
+        cardBack.appendChild(studentBirthDate);
+
+        const studentAge = document.createElement("time");
+        studentAge.textContent = `${student.birthDate}`;
+        cardBack.appendChild(studentAge);
     }
-    //Hobbies
-    if(student.hobbies){
-    const studentHobbies = document.createElement("h3");
-    studentHobbies.classList.add("Hobbies");
-    studentHobbies.textContent =`${student.hobbies}`;
-    article.appendChild(studentHobbies);
+
+    // Hobbies (liste de hobbies sous forme de paragraphes)
+    if (student.hobbies) {
+        const studentHobbies = document.createElement("h3");
+        studentHobbies.textContent = "Hobbies :";
+        cardBack.appendChild(studentHobbies);
+
+        const hobbiesText = document.createElement("p");
+        hobbiesText.textContent = `${student.hobbies}`;
+        cardBack.appendChild(hobbiesText);
     }
-    //Objectif titre
-    if(student.proObjective){
+
+    // Objectif professionnel
+    if (student.proObjective) {
         const proObject = document.createElement("h3");
-    proObject.classList.add("objectifpro");
-    proObject.textContent ="Objectif professionnel";
-    article.appendChild(proObject);
-    //Objectif text
-    const proObjectText = document.createElement("p");
-    proObjectText.classList.add("objectifprotext");
-    proObjectText.textContent = `${student.proObjective}`;
-    article.appendChild(proObjectText);
+        proObject.textContent = "Objectif professionnel :";
+        cardBack.appendChild(proObject);
+
+        const proObjectText = document.createElement("p");
+        proObjectText.textContent = `${student.proObjective}`;
+        cardBack.appendChild(proObjectText);
     }
-    //citation-anecdote
-    if(student.quote){
-    const citaAnec = document.createElement("h3");
-    citaAnec.classList.add("citaAnecTitre");
-    citaAnec.textContent = "Anecdote-Citation";
-    article.appendChild(citaAnec);
-    //citation-anecdote text
-    const citaAnecText = document.createElement("p");
-    citaAnecText.classList.add("citaanectext");
-    citaAnecText.textContent =`${student.quote}`;
-    article.appendChild(citaAnecText);
+
+    // Citation ou anecdote (utilisation de blockquote pour la citation)
+    if (student.quote) {
+        const citaAnec = document.createElement("h3");
+        citaAnec.textContent = "Anecdote/Citation :";
+        cardBack.appendChild(citaAnec);
+
+        const citaAnecText = document.createElement("blockquote");
+        citaAnecText.textContent = `${student.quote}`;
+        cardBack.appendChild(citaAnecText);
     }
+
+    // Ajout d'un événement de clic pour retourner la carte
+    article.addEventListener("click", () => {
+        article.classList.toggle("flipped");
+    });
 
     if (student.promo === "DevWeb"){
         article.classList.add("devWeb");
