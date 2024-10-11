@@ -50,6 +50,7 @@ body {
 
 main {
 text-align: left;
+height: 70vh;
 }
 
 h1 {
@@ -64,6 +65,7 @@ footer > p{
     color: #F4F5F6;
     text-align: center;
     padding: .4rem;
+    
 }   
 .logo-rond-footer{
     border: 1px solid #f1f0f0;
@@ -92,6 +94,7 @@ footer > ul{
 
 .studentPicture{
     height: 5rem;
+    height: 15vh;
 }
 
 section{
@@ -107,6 +110,11 @@ article{
     padding: 20px;
      text-align: center;
 }
+
+section {
+  height: 50vh;
+}
+
 
 @media screen and (min-width: 1024px){
     /* Conteneur des cartes */
@@ -203,4 +211,11 @@ article{
         border-left: 3px solid #ccc;
         padding-left: 10px;
       }
+    
+      .footer 
+      { padding-top: 100rem; }
+
+      .body {}
+
+      .main {height: 100vh;}
 }
