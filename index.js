@@ -113,6 +113,8 @@ studentWild.forEach((studentWild) => {
     createCard(studentWild);
 });
 
+
+/*Filtre pour la promo*/
 const promoFilter = document.querySelector('#promoFilter');
 
 promoFilter.addEventListener('change', function (){
