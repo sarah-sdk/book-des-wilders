@@ -1,8 +1,8 @@
 import studentWild from "./tableau.js";
 console.log(studentWild);
 
-   //Recto card
-   function creatCardRecto(student){
+
+   function createCard(student){
     const trombinoscope = document.querySelector(".trombinoscope");
     //elem carte
     const article = document.createElement("article");
@@ -87,7 +87,7 @@ console.log(studentWild);
     }
 };
 studentWild.forEach((studentWild) => {
-    creatCardRecto(studentWild);
+    createCard(studentWild);
 });
 
 const promoFilter = document.querySelector('#promoFilter');
@@ -98,13 +98,13 @@ promoFilter.addEventListener('change', function (){
     trombi.innerHTML = '';
     studentWild.forEach((student) => {
         if (selectedPromo === 'devWeb' && student.promo === 'DevWeb') {
-            creatCard(student);
+            createCard(student);
         } else if (selectedPromo === 'data' && student.promo === 'Data') {
-            creatCard(student);
+            createCard(student);
         } else if (selectedPromo === 'tssr' && student.promo === 'TSSR') {
-            creatCard(student);
+            createCard(student);
         } else if (selectedPromo === 'all'){
-            creatCard(student);
+            createCard(student);
         }
     });
 });
