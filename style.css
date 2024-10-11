@@ -49,7 +49,6 @@ body {
 }
 
 main {
-height: 70vh;
 text-align: left;
 }
 
@@ -115,7 +114,7 @@ article{
         flex-wrap: wrap;
         gap: 0.5rem;
         padding: 20px;
-    }    
+    }
     article{
       display: grid;
       grid-template-columns: repeat(2, 1fr);
