@@ -95,6 +95,20 @@ footer > ul{
     height: 5rem;
 }
 
+section{
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+article{
+    min-width: 100%;
+    scroll-snap-align: start;
+    background-color: #f1f1f1;
+    padding: 20px;
+     text-align: center;
+}
+
 @media screen and (min-width: 1024px){
     .trombinoscope {
         display: flex;
