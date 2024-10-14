@@ -141,7 +141,7 @@ const studentWild = [
         hobbies:'Lecture / Sport',
         proObjective: "Diplôme et ensuite boulot.",
         quote:"Seul, on va plus vite. Ensemble, on va plus loin.",
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.jpg", 
     },
     {
         firstName: 'Cécile',
