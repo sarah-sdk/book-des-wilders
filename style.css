@@ -52,7 +52,6 @@ h1 {
 .classListLien {
     display: flex;
     justify-content: space-around;
-    width: 100vw;
     gap: 7rem;
 }
 
@@ -115,6 +114,11 @@ article{
 .card-front{
     background-image: url(images/15186165_5566879.jpg);
     background-size: cover;
+}
+
+.card-back{
+  background-image: url(images/12230268_4931029.jpg);
+  background-size: cover;
 }
 
 .name{
@@ -238,9 +242,21 @@ footer > ul{
         gap: 20px; /* Espace entre les cartes */
         justify-items: center; /* Centrer les cartes dans les colonnes */
         padding: 20px;
-    }
-    
-    main{
+      }
+
+      .classListLien {
+        display: flex;
+        justify-content: space-around;
+        width: 100vw;
+        gap: 7rem;
+      }
+
+      .promoData, .promoTssr, .promoDev{
+        width: 19rem;
+        margin: 1rem;
+      }
+      main{
         height: auto;
     }
-}
+
+    };
