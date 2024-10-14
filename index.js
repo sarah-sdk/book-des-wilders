@@ -33,20 +33,31 @@ function createCard(student) {
     studentName.textContent = `${student.firstName} ${student.lastName}`;
     cardFront.appendChild(studentName);
 
-    // Lien LinkedIn au recto
+    // Lien LinkedIn
     const linkedinRef = document.createElement("a");
     linkedinRef.classList.add("linkedin");
     linkedinRef.href = student.linkedin || "#";  // Lien vers LinkedIn spécifique ou par défaut
     linkedinRef.target = "_blank";
     linkedinRef.ariaLabel = "Lien vers Linkedin";
     cardFront.appendChild(linkedinRef);
+    //icone Linkedin
+    const linkedinIcon = document.createElement("img");
+    linkedinIcon.src = "images/linkedin.svg";
+    linkedinIcon.alt = "Linkedin icon";
+    linkedinRef.appendChild(linkedinIcon);
+    cardFront.appendChild(linkedinRef)
 
-    // Lien GitHub au recto
+    //Lien GitHub 
     const githubRef = document.createElement("a");
     githubRef.classList.add("github");
     githubRef.href = student.github || "#";  // Lien vers GitHub spécifique ou par défaut
     githubRef.target = "_blank";
-    githubRef.ariaLabel= "Lien vers Github";
+    cardFront.appendChild(githubRef);
+    // Image Github
+    const githubIcon = document.createElement("img");
+    githubIcon.src = "images/github.svg"; // Chemin vers l'image SVG/PNG de GitHub
+    githubIcon.alt = "GitHub Icon";
+    githubRef.appendChild(githubIcon);
     cardFront.appendChild(githubRef);
 
     // Date de naissance (utilisation de time pour la date)
