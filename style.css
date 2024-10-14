@@ -4,14 +4,42 @@
     padding: 0;
 }
 
+:root{
+    --textFont : 'Barlow';
+    --titleFont : 'Bebas Neue';
+
+    --primaryColor : #023047;
+    --lightColor : #F4F5F6;
+}
+
+p,
+a {
+    font-family: var(--textFont);
+    
+}
+
+header,
+footer {
+    background-color: var(--primaryColor);
+}
+
+ul>li {
+    list-style-type: none;
+}
+
+/*header*/
 header {
     display: flex;
     height: 15vh;
     position: relative;
-    background-color: #023047;
     align-items: center;
 }
 
+h1 {
+    font-family: var(--titleFont);
+    text-align: center;
+    margin: 1rem 0;
+}
 
 .logo {
     width: 4rem;
@@ -20,71 +48,29 @@ header {
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
 .classListLien {
     display: flex;
     justify-content: space-around;
     gap: 7rem;
 }
 
-ul>li {
-    list-style-type: none;
-    font-family:"Barlow";
-}
 .classTrombi{
     text-align: end;
    margin-left: .7rem;
 }
 
 li>a {
-    color: #F4F5F6;
-    text-decoration: none;  
+    color: var(--lightColor);
+    text-decoration: none;
 }
 
+/*main*/
+main{
+    height: 70vh;
+}
 body {
-    background-color:  #F4F5F6;
-}
-
-main {
-text-align: left;
-}
-
-h1 {
-    text-align: center;
-    font-family:"Bebas Neue";
-}
-
-figcaption {
-  font-family:"Bebas Neue";
-}
-
-footer {
-    background-color: #023047;
-    height: 25vh;
-    align-content: flex-end;
-   }
-
-footer > p{
-    color: #F4F5F6;
-    text-align: center;
-    padding: .6rem;
-}
-
-.logo-rond-footer{
-    border: 1px solid #f1f0f0;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-}
-
-footer > ul{
-    display: flex;
-    justify-content: center;
-    font-family:"Barlow";
-}
-
-.ClassLiFooter{
-    text-align: center;
-    width: 3rem;
+    background-color:  var(--lightColor);
 }
 
 .devWeb {
@@ -109,16 +95,22 @@ footer > ul{
 
 section{
     display: flex;
-    overflow: scroll;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    height: auto;
+    margin-left: 1rem;
 }
 
 article{
-    min-width: 100%;
+    min-width: 18rem;
     scroll-snap-align: start;
-    background-color: #f1f1f1;
-     text-align: center;
+    text-align: center;
+    box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.54);
+    margin: 1rem .5rem;
 }
+
 .card-front{
     background-image: url(images/15186165_5566879.jpg);
     background-size: cover;
@@ -136,97 +128,110 @@ article{
 
 /* Conteneur d'une carte avec perspective */
 .card {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  perspective: 1000px; /* Nécessaire pour donner l'effet de profondeur */
+    width: 100%;
+    height: 25rem;
+    position: relative;
+    perspective: 1000px; /* Nécessaire pour donner l'effet de profondeur */
 }
 
 /* Carte qui tourne sur l'axe Y */
 .card-front, .card-back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  backface-visibility: hidden; /* Masque l'arrière quand elle tourne */
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.6s; /* Animation de rotation */
-  transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Masque l'arrière quand elle tourne */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s; /* Animation de rotation */
+    transform-style: preserve-3d;
 }
 
 /* Recto de la carte */
 .card-front {
-  background-color: #f8f8f8;
-  z-index: 2; /* Assure que le recto soit au-dessus par défaut */
+    z-index: 2; /* Assure que le recto soit au-dessus par défaut */
 }
 
 /* Verso de la carte (caché par défaut) */
 .card-back {
-  background-color: #ffffff;
-  transform: rotateY(180deg); /* On le retourne au départ pour qu'il soit à l'envers */
+    background-color: var(--lightColor);
+    transform: rotateY(180deg); /* On le retourne au départ pour qu'il soit à l'envers */
 }
 
 /* Animation de flip lors du clic */
 .card.flipped .card-front {
-  transform: rotateY(180deg); /* On fait pivoter le recto */
+    transform: rotateY(180deg); /* On fait pivoter le recto */
 }
 
 .card.flipped .card-back {
-  transform: rotateY(0deg); /* On retourne le verso pour le montrer */
+    transform: rotateY(0deg); /* On retourne le verso pour le montrer */
 }
 
 /* Style de l'image et du nom */
 .studentPicture {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .name {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
 }
 
 .github img, .linkedin img {
-  width: 5rem;
-  height: 2rem;
-  margin: 0 10px;
-  margin-top: 2rem;
+    width: 5rem;
+    height: 2rem;
+    margin: 0 10px;
+    margin-top: 2rem;
 }
 
 .github:hover img, .linkedin:hover img {
-  transform: scale(1.1); /* Agrandir légèrement au survol */
+    transform: scale(1.1); /* Agrandir légèrement au survol */
 }
 
 /* Style du contenu au verso */
 .card-back h3 {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: #555;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #555;
 }
 
 .card-back p, .card-back blockquote {
-  margin-top: 5px;
-  font-size: 1rem;
-  color: #777;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #777;
 }
 
 .card-back blockquote {
-  font-style: italic;
-  border-left: 3px solid #ccc;
-  padding-left: 10px;
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    padding-left: 10px;
 }
 
-.promoData, .promoTssr, .promoDev {
-  width: 18rem;
-  margin: 1rem;
+/*footer*/
+footer > p{
+    color: var(--lightColor);
+    text-align: center;
+    padding: .6rem;
 }
 
-p{
-  align-content: center;
-  margin: 1rem;
+.logo-rond-footer{
+    border: 1px solid var(--lightColor);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+footer > ul{
+    display: flex;
+    justify-content: center;
+}
+
+.ClassLiFooter{
+    text-align: center;
+    width: 3rem;
 }
 
 @media screen and (min-width: 1024px){
@@ -250,7 +255,8 @@ p{
         width: 19rem;
         margin: 1rem;
       }
+      main{
+        height: auto;
+    }
 
     };
-
-      
