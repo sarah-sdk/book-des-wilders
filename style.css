@@ -4,16 +4,12 @@
     padding: 0;
 }
 
-
-
 header {
     display: flex;
     height: 15vh;
     position: relative;
     background-color: #023047;
     align-items: center;
-
-
 }
 
 
@@ -27,15 +23,12 @@ header {
 .classListLien {
     display: flex;
     justify-content: space-around;
-    width: 100vw;
     gap: 7rem;
-
 }
 
 ul>li {
     list-style-type: none;
     font-family:"Barlow";
-
 }
 .classTrombi{
     text-align: end;
@@ -44,7 +37,7 @@ ul>li {
 
 li>a {
     color: #F4F5F6;
-    text-decoration: none;
+    text-decoration: none;  
 }
 
 body {
@@ -53,13 +46,11 @@ body {
 
 main {
 text-align: left;
-height: 70vh;
 }
 
 h1 {
     text-align: center;
     font-family:"Bebas Neue";
-    
 }
 
 figcaption {
@@ -69,25 +60,28 @@ figcaption {
 footer {
     background-color: #023047;
     height: 25vh;
-}
+    align-content: flex-end;
+   }
+
 footer > p{
     color: #F4F5F6;
     text-align: center;
     padding: .6rem;
-    
-    
-}   
+}
+
 .logo-rond-footer{
     border: 1px solid #f1f0f0;
     border-radius: 50%;
     width: 30px;
     height: 30px;
 }
+
 footer > ul{
     display: flex;
     justify-content: center;
     font-family:"Barlow";
 }
+
 .ClassLiFooter{
     text-align: center;
     width: 3rem;
@@ -97,10 +91,12 @@ footer > ul{
     border: 3px solid blue;
     border-radius: 10px;
 }
+
 .data{
     border: 3px solid red;
     border-radius: 10px;
 }
+
 .tssr{
     border: 3px solid yellow;
     border-radius: 10px;
@@ -127,12 +123,111 @@ article{
     background-image: url(images/15186165_5566879.jpg);
     background-size: cover;
 }
+
+.card-back{
+  background-image: url(images/12230268_4931029.jpg);
+  background-size: cover;
+}
+
 .name{
     color: midnightblue;
     font-family: "Geologica", sans-serif;
 }
 
+/* Conteneur d'une carte avec perspective */
+.card {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  perspective: 1000px; /* Nécessaire pour donner l'effet de profondeur */
+}
 
+/* Carte qui tourne sur l'axe Y */
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Masque l'arrière quand elle tourne */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s; /* Animation de rotation */
+  transform-style: preserve-3d;
+}
+
+/* Recto de la carte */
+.card-front {
+  background-color: #f8f8f8;
+  z-index: 2; /* Assure que le recto soit au-dessus par défaut */
+}
+
+/* Verso de la carte (caché par défaut) */
+.card-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg); /* On le retourne au départ pour qu'il soit à l'envers */
+}
+
+/* Animation de flip lors du clic */
+.card.flipped .card-front {
+  transform: rotateY(180deg); /* On fait pivoter le recto */
+}
+
+.card.flipped .card-back {
+  transform: rotateY(0deg); /* On retourne le verso pour le montrer */
+}
+
+/* Style de l'image et du nom */
+.studentPicture {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.name {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.github img, .linkedin img {
+  width: 5rem;
+  height: 2rem;
+  margin: 0 10px;
+  margin-top: 2rem;
+}
+
+.github:hover img, .linkedin:hover img {
+  transform: scale(1.1); /* Agrandir légèrement au survol */
+}
+
+/* Style du contenu au verso */
+.card-back h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.card-back p, .card-back blockquote {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #777;
+}
+
+.card-back blockquote {
+  font-style: italic;
+  border-left: 3px solid #ccc;
+  padding-left: 10px;
+}
+
+.promoData, .promoTssr, .promoDev {
+  width: 18rem;
+  margin: 1rem;
+}
+
+p{
+  align-content: center;
+  margin: 1rem;
+}
 
 @media screen and (min-width: 1024px){
     /* Conteneur des cartes */
@@ -143,87 +238,19 @@ article{
         justify-items: center; /* Centrer les cartes dans les colonnes */
         padding: 20px;
       }
+
+      .classListLien {
+        display: flex;
+        justify-content: space-around;
+        width: 100vw;
+        gap: 7rem;
+      }
+
+      .promoData, .promoTssr, .promoDev{
+        width: 19rem;
+        margin: 1rem;
+      }
+
+    };
+
       
-      /* Conteneur d'une carte avec perspective */
-      .card {
-        width: 100%;
-        height: 400px;
-        position: relative;
-        perspective: 1000px; /* Nécessaire pour donner l'effet de profondeur */
-      }
-      
-      /* Carte qui tourne sur l'axe Y */
-      .card-front, .card-back {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        backface-visibility: hidden; /* Masque l'arrière quand elle tourne */
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.6s; /* Animation de rotation */
-        transform-style: preserve-3d;
-      }
-      
-      /* Recto de la carte */
-      .card-front {
-        background-color: #f8f8f8;
-        z-index: 2; /* Assure que le recto soit au-dessus par défaut */
-      }
-      
-      /* Verso de la carte (caché par défaut) */
-      .card-back {
-        background-color: #ffffff;
-        transform: rotateY(180deg); /* On le retourne au départ pour qu'il soit à l'envers */
-      }
-      
-      /* Animation de flip lors du clic */
-      .card.flipped .card-front {
-        transform: rotateY(180deg); /* On fait pivoter le recto */
-      }
-      
-      .card.flipped .card-back {
-        transform: rotateY(0deg); /* On retourne le verso pour le montrer */
-      }
-      
-      /* Style de l'image et du nom */
-      .studentPicture {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-      }
-      
-      .name {
-        text-align: center;
-        font-size: 1.5rem;
-        margin-top: 10px;
-      }
-      .github img, .linkedin img {
-        width: 5rem;
-        height: 2rem;
-        margin: 0 10px;
-        margin-top: 2rem;
-      }
-      
-      .github:hover img, .linkedin:hover img {
-        transform: scale(1.1); /* Agrandir légèrement au survol */
-      }
-      /* Style du contenu au verso */
-      .card-back h3 {
-        margin-top: 10px;
-        font-size: 1.2rem;
-        color: #555;
-      }
-      
-      .card-back p, .card-back blockquote {
-        margin-top: 5px;
-        font-size: 1rem;
-        color: #777;
-      }
-      
-      .card-back blockquote {
-        font-style: italic;
-        border-left: 3px solid #ccc;
-        padding-left: 10px;
-      }
-}
