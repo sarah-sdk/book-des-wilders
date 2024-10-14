@@ -5,6 +5,7 @@
 }
 
 
+
 header {
     display: flex;
     height: 15vh;
@@ -12,7 +13,9 @@ header {
     background-color: #023047;
     align-items: center;
 
+
 }
+
 
 .logo {
     width: 4rem;
@@ -23,7 +26,7 @@ header {
 }
 .classListLien {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100vw;
     gap: 7rem;
 
@@ -31,7 +34,7 @@ header {
 
 ul>li {
     list-style-type: none;
-    width: 200px;
+    font-family:"Barlow";
 
 }
 .classTrombi{
@@ -55,16 +58,23 @@ height: 70vh;
 
 h1 {
     text-align: center;
+    font-family:"Bebas Neue";
+    
+}
+
+figcaption {
+  font-family:"Bebas Neue";
 }
 
 footer {
     background-color: #023047;
-    height: 15vh;
+    height: 25vh;
 }
 footer > p{
     color: #F4F5F6;
     text-align: center;
-    padding: .4rem;
+    padding: .6rem;
+    
     
 }   
 .logo-rond-footer{
@@ -76,6 +86,7 @@ footer > p{
 footer > ul{
     display: flex;
     justify-content: center;
+    font-family:"Barlow";
 }
 .ClassLiFooter{
     text-align: center;
@@ -223,7 +234,7 @@ section {
       .footer 
       { padding-top: 100rem; }
 
-      .body {}
+      
 
       .main {height: 100vh;}
 }
