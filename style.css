@@ -93,6 +93,11 @@ body {
     height: 15vh;
 }
 
+.data Img {
+    width: 13rem;
+}
+
+
 section{
     display: flex;
     align-items: center;
@@ -259,4 +264,6 @@ footer > ul{
         height: auto;
     }
 
-    };
+    }
+
+    .promoData {width: 70%;}
