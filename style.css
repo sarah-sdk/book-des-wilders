@@ -239,6 +239,10 @@ footer > ul{
     width: 3rem;
 }
 
+.data .studentPicture {
+    height : 12.5rem;
+}
+
 @media screen and (min-width: 1024px){
     /* Conteneur des cartes */
     .trombinoscope {

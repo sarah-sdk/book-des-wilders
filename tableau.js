@@ -32,7 +32,7 @@ const studentWild = [
         linkedin:'https://fr.linkedin.com/in/sarah-smandack-161419167',
         hobbies:'Jeux videos, manger',
         proObjective:'Travailler de là où je veux',
-        quote:'"C\est l\hopital qui se fiche du beurre de karité."',
+        quote:`"C'est l'hopital qui se fiche du beurre de karité."`,
         image: 'images/photoWilders/dev/sarahS.jpg',
     },
     {
@@ -141,7 +141,7 @@ const studentWild = [
         hobbies:'Lecture / Sport',
         proObjective: "Diplôme et ensuite boulot.",
         quote:"Seul, on va plus vite. Ensemble, on va plus loin.",
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Cécile',
@@ -165,7 +165,7 @@ const studentWild = [
         hobbies:'Escalade Block',
         proObjective: "Objectif Moulardaire",
         quote:"J'ai la phobie des plannings",
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Thomas',
@@ -249,7 +249,7 @@ const studentWild = [
         hobbies:'Course à pied',
         proObjective: "Data analyst - Secteur financier / bancaire",
         quote:`Quand on veut on peut, quand on peut on doit.`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Jordi',
@@ -261,7 +261,7 @@ const studentWild = [
         hobbies:'sport, musique',
         proObjective: "après avoir travaillé 10 ans dans l'enseignement, je souhaite me reconvertir dans la data",
         quote:`j'ai déjà eu des élèves qui m'ont appelé 'papa' en plein cours 😅`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Alexandre',
@@ -273,7 +273,7 @@ const studentWild = [
         hobbies:'Crossfit, jeux vidéo, voyage',
         proObjective: "Data Analyst - Gaming - Sport et Banque",
         quote:`J'ai fait un marathon au rameur`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Yann',
@@ -285,7 +285,7 @@ const studentWild = [
         hobbies:'',
         proObjective: "Reconversion",
         quote:`Euh, sorry ! Ca attendra vendredi :)`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Jérémy',
@@ -297,7 +297,7 @@ const studentWild = [
         hobbies:'Sport, lecture',
         proObjective: "Trouver un poste de data analyst à la fin de la formation",
         quote:`Un con qui marche va plus loin qu'un intellectuel assis`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Julien',
@@ -345,7 +345,7 @@ const studentWild = [
         hobbies:'sport, e-sport, voyages, lectures',
         proObjective: "Travailler dans un autre pays",
         quote:`un tuk-tuk ma anarqué 50€`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Roxanne',
@@ -369,7 +369,7 @@ const studentWild = [
         hobbies:"photographie , sport , et analyser des datas :D",
         proObjective: "passer cette formation de data",
         quote:`bah  j'avait une vie tranquille et un jour j'ai décidée de faire une formation de data analyse .`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Aurélien',
@@ -381,7 +381,7 @@ const studentWild = [
         hobbies:"",
         proObjective: "Devenir Data Analyst",
         quote:`A jamais les premiers !`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Claire',
@@ -393,7 +393,7 @@ const studentWild = [
         hobbies:"Lecture, golf",
         proObjective: "Devenir data analyst (dans une petite entreprise secteur santé, environnement etc ou en Freelance)",
         quote:`"Dans la vie je ne perds jamais. Soit je gagne soit j'apprends". Nelson Mandela`,
-        image: "images/photoWilders/data/phil.jpg",
+        image: "images/photoWilders/data/phil.png",
     },
     {
         firstName: 'Raphael',
