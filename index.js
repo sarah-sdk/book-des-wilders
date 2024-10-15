@@ -125,20 +125,20 @@ studentWild.forEach((studentWild) => {
 
 
 /*Filtre pour la promo*/
-const promoFilter = document.querySelector('#promoFilter');
+const promoFilter = document.querySelector('.promoFilter');
 
 promoFilter.addEventListener('change', function (){
     const selectedPromo = document.querySelector('input[name="promo"]:checked');
     const trombi = document.querySelector('section');
     trombi.innerHTML = '';
     studentWild.forEach((student) => {
-        if (selectedPromo.id === 'devWeb' && student.promo === 'DevWeb') {
+        if (selectedPromo.className === 'devWeb' && student.promo === 'DevWeb') {
             createCard(student);
-        } else if (selectedPromo.id === 'data' && student.promo === 'Data') {
+        } else if (selectedPromo.className === 'data' && student.promo === 'Data') {
             createCard(student);
-        } else if (selectedPromo.id === 'tssr' && student.promo === 'TSSR') {
+        } else if (selectedPromo.className === 'tssr' && student.promo === 'TSSR') {
             createCard(student);
-        } else if (selectedPromo.id === 'all'){
+        } else if (selectedPromo.className === 'all'){
             createCard(student);
         }
     });
