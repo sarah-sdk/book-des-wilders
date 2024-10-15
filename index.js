@@ -1,6 +1,4 @@
 import studentWild from "./tableau.js";
-console.log(studentWild);
-
 
 function createCard(student) {
     const trombinoscope = document.querySelector(".trombinoscope");
@@ -34,20 +32,22 @@ function createCard(student) {
     cardFront.appendChild(studentName);
 
     // Lien LinkedIn
+    if(student.linkedin){
     const linkedinRef = document.createElement("a");
     linkedinRef.classList.add("linkedin");
     linkedinRef.href = student.linkedin || "#";  // Lien vers LinkedIn spécifique ou par défaut
     linkedinRef.target = "_blank";
-    linkedinRef.ariaLabel = "Lien vers Linkedin";
     cardFront.appendChild(linkedinRef);
     //icone Linkedin
     const linkedinIcon = document.createElement("img");
     linkedinIcon.src = "images/linkedin.svg";
-    linkedinIcon.alt = "Linkedin icon";
+    linkedinIcon.alt = `Lien vers Linkedin de ${student.firstName} ${student.lastName}`;
     linkedinRef.appendChild(linkedinIcon);
     cardFront.appendChild(linkedinRef)
+    }
 
     //Lien GitHub 
+    if (student.github){
     const githubRef = document.createElement("a");
     githubRef.classList.add("github");
     githubRef.href = student.github || "#";  // Lien vers GitHub spécifique ou par défaut
@@ -56,9 +56,10 @@ function createCard(student) {
     // Image Github
     const githubIcon = document.createElement("img");
     githubIcon.src = "images/github.svg"; // Chemin vers l'image SVG/PNG de GitHub
-    githubIcon.alt = "GitHub Icon";
+    githubIcon.alt = `Lien vers GitHub de ${student.firstName} ${student.lastName}`;
     githubRef.appendChild(githubIcon);
     cardFront.appendChild(githubRef);
+    }
 
     // Date de naissance (utilisation de time pour la date)
     if (student.birthDate) {
@@ -128,7 +129,6 @@ const promoFilter = document.querySelector('#promoFilter');
 
 promoFilter.addEventListener('change', function (){
     const selectedPromo = document.querySelector('input[name="promo"]:checked');
-    console.log(selectedPromo);
     const trombi = document.querySelector('section');
     trombi.innerHTML = '';
     studentWild.forEach((student) => {
