@@ -66,9 +66,6 @@ li>a {
 }
 
 /*main*/
-main{
-    height: 70vh;
-}
 body {
     background-color:  var(--lightColor);
 }
@@ -214,6 +211,18 @@ article{
     padding-left: 10px;
 }
 
+.data .studentPicture {
+    height : 12.5rem;
+}
+
+label{
+    font-family: var(--textFont);
+}
+
+input:hover{
+    transform: scale(1.2);
+}
+
 /*footer*/
 footer > p{
     color: var(--lightColor);
@@ -236,10 +245,6 @@ footer > ul{
 .ClassLiFooter{
     text-align: center;
     width: 3rem;
-}
-
-.data .studentPicture {
-    height : 12.5rem;
 }
 
 @media screen and (min-width: 1024px){
@@ -265,6 +270,10 @@ footer > ul{
       }
       main{
         height: auto;
+    }
+
+    input{
+        margin-left: .5rem;
     }
 
     };
