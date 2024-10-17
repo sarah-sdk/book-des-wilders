@@ -51,7 +51,7 @@ const createModal = function (student, parent) {
     // Image Github
     const githubIcon = document.createElement("img");
     githubIcon.src = "images/github.svg"; // Chemin vers l'image SVG/PNG de GitHub
-    githubIcon.alt = `Lien vers le Github de ${student.firstName} ${student.lastName}`;
+    githubIcon.alt = `Lien vers Github de ${student.firstName} ${student.lastName}`;
     githubRef.appendChild(githubIcon);
     figure.appendChild(githubRef);
     }

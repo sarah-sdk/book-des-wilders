@@ -32,7 +32,6 @@ function createCard(student, parent) {
     linkedinRef.classList.add("linkedin");
     linkedinRef.href = student.linkedin || "#";  // Lien vers LinkedIn spécifique ou par défaut
     linkedinRef.target = "_blank";
-    linkedinRef.ariaLabel = "Lien vers Linkedin";
     figure.appendChild(linkedinRef);
     //icone Linkedin
     const linkedinIcon = document.createElement("img");
