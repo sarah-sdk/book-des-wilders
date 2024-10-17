@@ -3,15 +3,15 @@ import studentWild from "./tableau.js";
 
 
 
-const createModal = function(student, parent) {
-    
+const createModal = function (student, parent) {
+
     //création de la modale
     const modal = createTag("dialog", "modal", null);
-    
-    
+
+
     const figure = createTag("figure", "card-front", null);
     modal.appendChild(figure);
-    
+
     // Verso de la carte (footer pour les détails)
     const footer = createTag("footer", "card-back", null);
     modal.appendChild(footer);
@@ -28,20 +28,21 @@ const createModal = function(student, parent) {
     figure.appendChild(studentName);
 
     // Lien LinkedIn
+    if(student.linkedin){
     const linkedinRef = document.createElement("a");
     linkedinRef.classList.add("linkedin");
     linkedinRef.href = student.linkedin || "#";  // Lien vers LinkedIn spécifique ou par défaut
     linkedinRef.target = "_blank";
-    linkedinRef.ariaLabel = "Lien vers Linkedin";
     figure.appendChild(linkedinRef);
     //icone Linkedin
     const linkedinIcon = document.createElement("img");
     linkedinIcon.src = "images/linkedin.svg";
-    linkedinIcon.alt = "Linkedin icon";
+    linkedinIcon.alt = `Lien vers Linkedin de ${student.firstName} ${student.lastName}`;
     linkedinRef.appendChild(linkedinIcon);
     figure.appendChild(linkedinRef)
-
-    //Lien GitHub 
+    }
+    //Lien GitHub
+    if (student.github){ 
     const githubRef = document.createElement("a");
     githubRef.classList.add("github");
     githubRef.href = student.github || "#";  // Lien vers GitHub spécifique ou par défaut
@@ -50,13 +51,13 @@ const createModal = function(student, parent) {
     // Image Github
     const githubIcon = document.createElement("img");
     githubIcon.src = "images/github.svg"; // Chemin vers l'image SVG/PNG de GitHub
-    githubIcon.alt = "GitHub Icon";
+    githubIcon.alt = `Lien vers le Github de ${student.firstName} ${student.lastName}`;
     githubRef.appendChild(githubIcon);
     figure.appendChild(githubRef);
-
+    }
     // Date de naissance (utilisation de time pour la date)
     if (student.birthDate) {
-        const birthDate = createTag("h3", null, "Date de naissance :" );
+        const birthDate = createTag("h3", null, "Date de naissance :");
         footer.appendChild(birthDate);
 
         const age = createTag("time", null, `${student.birthDate}`);
@@ -74,10 +75,10 @@ const createModal = function(student, parent) {
 
     // Objectif professionnel
     if (student.proObjective) {
-        const title = createTag("h3", null,"Objectif professionnel :" );
+        const title = createTag("h3", null, "Objectif professionnel :");
         footer.appendChild(title);
 
-        const objectives = createTag("p", null,`${student.proObjective}`);
+        const objectives = createTag("p", null, `${student.proObjective}`);
         footer.appendChild(objectives);
     }
 
@@ -97,8 +98,8 @@ const createModal = function(student, parent) {
         modal.classList.add("data");
     } else {
         modal.classList.add("tssr");
-    }    
-    
+    }
+
     return modal;
 
 }

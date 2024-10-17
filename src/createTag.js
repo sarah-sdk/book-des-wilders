@@ -3,7 +3,7 @@ const createTag = function (tagHTML, className, text) {
     if (className) {
         tag.classList.add(className);
     }
-    if (text){
+    if (text) {
         tag.textContent = text;
     }
     return tag;

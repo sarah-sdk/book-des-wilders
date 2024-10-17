@@ -39,7 +39,8 @@ function createCard(student, parent) {
     linkedinIcon.src = "images/linkedin.svg";
     linkedinIcon.alt = `Lien vers Linkedin de ${student.firstName} ${student.lastName}`;
     linkedinRef.appendChild(linkedinIcon);
-    figure.appendChild(linkedinRef)
+    figure.appendChild(linkedinRef);
+    }
 
     //Lien GitHub 
     if (student.github){
@@ -54,6 +55,7 @@ function createCard(student, parent) {
     githubIcon.alt = `Lien vers GitHub de ${student.firstName} ${student.lastName}`;
     githubRef.appendChild(githubIcon);
     figure.appendChild(githubRef);
+    }
 
     // Date de naissance (utilisation de time pour la date)
     if (student.birthDate) {
@@ -99,20 +101,18 @@ function createCard(student, parent) {
     }
 
     //rajoute toute la carte à mon trombinoscope
-    parent.appendChild(article);
-
-    return article;
+    return parent.appendChild(article); 
 }
 
-studentWild.forEach((studentWild) => {
-    const element = createCard(studentWild, trombinoscope);
+studentWild.forEach((student) => {
+    const element = createCard(student, trombinoscope);
 
     element.addEventListener("click", () => {
 
         if (window.innerWidth < 1024) {
             element.classList.toggle("flipped");
         } else {
-            const modal = createModal(studentWild, trombinoscope);
+            const modal = createModal(student, trombinoscope);
 
             modal.show();
 
@@ -124,8 +124,6 @@ studentWild.forEach((studentWild) => {
             });
             modal.addEventListener("click", () =>{
                 modal.classList.toggle('flipped');
-                console.log("toto");
-                  
               });
             
         }
@@ -137,20 +135,108 @@ const promoFilter = document.querySelector('.promoFilter');
 
 promoFilter.addEventListener('change', function () {
     const selectedPromo = document.querySelector('input[name="promo"]:checked');
-
     //const trombi = document.querySelector('section');
     trombinoscope.innerHTML = ''; // supprimer les cartes du trombi
     studentWild.forEach((student) => {
-        if (selectedPromo.id === 'devWeb' && student.promo === 'DevWeb') {
-            createCard(student, trombinoscope);
-        } else if (selectedPromo.id === 'data' && student.promo === 'Data') {
-            createCard(student, trombinoscope);
-        } else if (selectedPromo.id === 'tssr' && student.promo === 'TSSR') {
-            createCard(student, trombinoscope);
-        } else if (selectedPromo.id === 'all') {
-            createCard(student, trombinoscope);
+        if (selectedPromo.className === 'devWeb' && student.promo === 'DevWeb') {
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
+        } else if (selectedPromo.className === 'data' && student.promo === 'Data') {
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
+        } else if (selectedPromo.className === 'tssr' && student.promo === 'TSSR') {
+
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
+        } else if (selectedPromo.className === 'all') {
+
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
         }
     });
 
 });
-}}
