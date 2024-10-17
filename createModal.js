@@ -1,19 +1,20 @@
-import studentWild from "./tableau.js";
 import createTag from "./src/createTag.js";
-import createModal from "./createModal.js";
+import studentWild from "./tableau.js";
 
-const trombinoscope = document.querySelector(".trombinoscope");
-const bg = document.querySelector(".bg");
 
-function createCard(student, parent) {
-    const article = createTag("article", "card", null);
 
+const createModal = function(student, parent) {
+    
+    //création de la modale
+    const modal = createTag("dialog", "modal", null);
+    
+    
     const figure = createTag("figure", "card-front", null);
-    article.appendChild(figure);
-
+    modal.appendChild(figure);
+    
     // Verso de la carte (footer pour les détails)
     const footer = createTag("footer", "card-back", null);
-    article.appendChild(footer);
+    modal.appendChild(footer);
 
     // Image au recto (dans figure)
     const img = document.createElement("img");
@@ -55,7 +56,7 @@ function createCard(student, parent) {
 
     // Date de naissance (utilisation de time pour la date)
     if (student.birthDate) {
-        const birthDate = createTag("h3", null, "Date de naissance :");
+        const birthDate = createTag("h3", null, "Date de naissance :" );
         footer.appendChild(birthDate);
 
         const age = createTag("time", null, `${student.birthDate}`);
@@ -73,10 +74,10 @@ function createCard(student, parent) {
 
     // Objectif professionnel
     if (student.proObjective) {
-        const title = createTag("h3", null, "Objectif professionnel :");
+        const title = createTag("h3", null,"Objectif professionnel :" );
         footer.appendChild(title);
 
-        const objectives = createTag("p", null, `${student.proObjective}`);
+        const objectives = createTag("p", null,`${student.proObjective}`);
         footer.appendChild(objectives);
     }
 
@@ -88,66 +89,21 @@ function createCard(student, parent) {
         const quote = createTag("blockquote", null, `${student.quote}`);
         footer.appendChild(quote);
     }
+    parent.appendChild(modal);
+
     if (student.promo === "DevWeb") {
-        article.classList.add("devWeb");
+        modal.classList.add("devWeb");
     } else if (student.promo === "Data") {
-        article.classList.add("data");
+        modal.classList.add("data");
     } else {
-        article.classList.add("tssr");
-    }
+        modal.classList.add("tssr");
+    }    
+    
+    return modal;
 
-    //rajoute toute la carte à mon trombinoscope
-    parent.appendChild(article);
-
-    return article;
 }
+export default createModal;
 
-studentWild.forEach((studentWild) => {
-    const element = createCard(studentWild, trombinoscope);
 
-    element.addEventListener("click", () => {
 
-        if (window.innerWidth < 1024) {
-            element.classList.toggle("flipped");
-        } else {
-            const modal = createModal(studentWild, trombinoscope);
 
-            modal.show();
-
-            bg.classList.add("visibleGrid");
-
-            bg.addEventListener("click", () => {
-                modal.remove();
-                bg.classList.remove("visibleGrid");
-            });
-            modal.addEventListener("click", () =>{
-                modal.classList.toggle('flipped');
-                console.log("toto");
-                  
-              });
-            
-        }
-    })
-});
-
-/*Filtre pour la promo*/
-const promoFilter = document.querySelector('#promoFilter');
-
-promoFilter.addEventListener('change', function () {
-    const selectedPromo = document.querySelector('input[name="promo"]:checked');
-
-    //const trombi = document.querySelector('section');
-    trombinoscope.innerHTML = ''; // supprimer les cartes du trombi
-    studentWild.forEach((student) => {
-        if (selectedPromo.id === 'devWeb' && student.promo === 'DevWeb') {
-            createCard(student, trombinoscope);
-        } else if (selectedPromo.id === 'data' && student.promo === 'Data') {
-            createCard(student, trombinoscope);
-        } else if (selectedPromo.id === 'tssr' && student.promo === 'TSSR') {
-            createCard(student, trombinoscope);
-        } else if (selectedPromo.id === 'all') {
-            createCard(student, trombinoscope);
-        }
-    });
-
-});

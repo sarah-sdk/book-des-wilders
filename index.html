@@ -27,13 +27,23 @@
         </nav>
     </header>
     <main>
+            <pre class="bg"></pre>
             <h1>Trombinoscope des Wilders</h1>
-            <select id="promoFilter">
-                <option value="all">Toutes les promos</option>
-                <option value="devWeb">DevWeb</option>
-                <option value="data">Data</option>
-                <option value="tssr">TSSR</option>
-            </select>
+            <fieldset id="promoFilter">
+                <legend>Choissisez votre promotion:</legend>
+              
+                  <input type="radio" id="all" name="promo"/>
+                  <label for="all">Toutes les promos</label>
+
+                  <input type="radio" id="devWeb" name="promo"/>
+                  <label for="devWeb">DevWeb</label>
+
+                  <input type="radio" id="data" name="promo"/>
+                  <label for="data">Data</label>
+
+                  <input type="radio" id="tssr" name="promo"/>
+                  <label for="tssr">TSSR</label>
+              </fieldset>
             <section class="trombinoscope">
             </section>
     </main>

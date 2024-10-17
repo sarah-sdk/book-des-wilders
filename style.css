@@ -159,11 +159,11 @@ article{
 }
 
 /* Animation de flip lors du clic */
-.card.flipped .card-front {
+.card.flipped .card-front, .modal.flipped .card-front {
     transform: rotateY(180deg); /* On fait pivoter le recto */
 }
 
-.card.flipped .card-back {
+.card.flipped .card-back, .modal.flipped .card-back {
     transform: rotateY(0deg); /* On retourne le verso pour le montrer */
 }
 
@@ -183,7 +183,7 @@ article{
 .github img, .linkedin img {
     width: 5rem;
     height: 2rem;
-    margin: 0 10px;
+    margin: 0 1rem;
     margin-top: 2rem;
 }
 
@@ -234,6 +234,15 @@ footer > ul{
     width: 3rem;
 }
 
+.data .studentPicture {
+    height : 12.5rem;
+}
+
+pre {
+    display: none;
+}
+
+
 @media screen and (min-width: 1024px){
     /* Conteneur des cartes */
     .trombinoscope {
@@ -259,4 +268,62 @@ footer > ul{
         height: auto;
     }
 
-    };
+    .modal{
+        width: 21rem;
+        height: 25rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        
+    }
+
+    .visibleGrid {
+        display: grid;
+    }
+    /* Effet de flou sur l'arrière-plan de la page quand la modale est ouverte */
+    .bg.visibleGrid::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px); /* Effet de flou */
+    z-index: 9998; /* Derrière la modale */
+  }
+
+  /* Style du contenu au verso en modal */
+.modal .card-back h3 {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #555;
+    padding: .6rem;
+}
+.modal .card-back time{
+    position: relative;
+    left: 7.1rem;
+    font-size: 1.2rem;
+}
+.card-back p {
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #777;
+    font-style: italic;
+}
+
+.modal .card-back blockquote {
+    font-style: italic;
+    border-left: 3px solid #ccc;
+    padding-left: 10px;
+}
+
+.modal .card-front .github img, .modal .card-front .linkedin img {
+    width: 5rem;
+    height: 2rem;
+    margin: 2rem 0 0 3.6rem;
+}
+}
