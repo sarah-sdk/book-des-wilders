@@ -7,13 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
-    <title>Wilders Book</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Trombinoscope | Wilders Book</title>
 </head>
 
 <body>
@@ -28,24 +23,22 @@
     </header>
     <main>
             <pre class="bg"></pre>
-            <h1>Trombinoscope des Wilders</h1>
-            <fieldset id="promoFilter">
-                <legend>Choissisez votre promotion:</legend>
-              
-                  <input type="radio" id="all" name="promo"/>
-                  <label for="all">Toutes les promos</label>
+        <h1>Trombinoscope des Wilders</h1>
+        <form class="promoFilter">
+            <input type="radio" class="all" name="promo"/>
+            <label for="all">Toutes les promos</label>
 
-                  <input type="radio" id="devWeb" name="promo"/>
-                  <label for="devWeb">DevWeb</label>
+            <input type="radio" class="devWeb" name="promo"/>
+            <label for="devWeb">DevWeb</label>
 
-                  <input type="radio" id="data" name="promo"/>
-                  <label for="data">Data</label>
+            <input type="radio" class="data" name="promo"/>
+            <label for="data">Data</label>
 
-                  <input type="radio" id="tssr" name="promo"/>
-                  <label for="tssr">TSSR</label>
-              </fieldset>
-            <section class="trombinoscope">
-            </section>
+            <input type="radio" class="tssr" name="promo"/>
+            <label for="tssr">TSSR</label>
+        </form>
+        <section class="trombinoscope">
+        </section>
     </main>
     <footer>
         <p>© Copyright Wilders 2024</p>
@@ -69,7 +62,6 @@
         </ul>
         <p>Design By DevWebTeam</p>
     </footer>
- <script src="index.js" type ="module"></script>
+<script src="index.js" type ="module"></script>
 </body>
-
 </html>

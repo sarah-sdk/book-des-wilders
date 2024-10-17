@@ -5,7 +5,7 @@
 }
 
 :root{
-    --textFont : 'Barlow';
+    --textFont : 'Atkinson Hyperlegible';
     --titleFont : 'Bebas Neue';
 
     --primaryColor : #023047;
@@ -66,11 +66,12 @@ li>a {
 }
 
 /*main*/
-main{
-    height: 70vh;
-}
 body {
     background-color:  var(--lightColor);
+}
+
+.imgdata{
+  width:80% ;
 }
 
 .devWeb {
@@ -210,6 +211,18 @@ article{
     padding-left: 10px;
 }
 
+.data .studentPicture {
+    height : 12.5rem;
+}
+
+label{
+    font-family: var(--textFont);
+}
+
+input:hover{
+    transform: scale(1.2);
+}
+
 /*footer*/
 footer > p{
     color: var(--lightColor);
@@ -266,6 +279,10 @@ pre {
       }
       main{
         height: auto;
+    }
+
+    input{
+        margin-left: .5rem;
     }
 
     .modal{
