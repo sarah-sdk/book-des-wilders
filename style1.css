@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --textFont : 'Atkinson Hyperlegible';
+    --titleFont : 'Bebas Neue';
+
+    --primaryColor : #023047;
+    --lightColor : #F4F5F6;
+}
+
+aside {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    height: auto;
+    margin-left: 1rem;
+}
+
+aside>img {
+    height: 15rem;
+    scroll-snap-align: start;
+    text-align: center;
+    margin: 1rem .5rem;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+p {
+    padding: .5rem 1rem;
+    max-width: 65ch;
+    margin: auto;
+}
+p,
+a {
+    font-family: var(--textFont);
+    line-height: 2em;
+}
+
+header,
+footer {
+    background-color: var(--primaryColor);
+}
+
+ul>li {
+    list-style-type: none;
+}
+
+/*header*/
+header {
+    display: flex;
+    height: 15vh;
+    position: relative;
+    align-items: center;
+}
+
+h1 {
+    font-family: var(--titleFont);
+    text-align: center;
+    margin: 1rem 0;
+    
+}
+
+.logo {
+    width: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.classListLien {
+    display: flex;
+    justify-content: space-around;
+    gap: 7rem;
+}
+
+.classTrombi{
+    text-align: end;
+   margin-left: .7rem;
+}
+
+li>a {
+    color: var(--lightColor);
+    text-decoration: none;
+}
+
+/*main*/
+body {
+    background-color:  var(--lightColor);
+}
+
+/*footer*/
+footer > p{
+    color: var(--lightColor);
+    text-align: center;
+    padding: .6rem;
+}
+
+.logo-rond-footer{
+    border: 1px solid var(--lightColor);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+footer > ul{
+    display: flex;
+    justify-content: center;
+}
+
+.ClassLiFooter{
+    text-align: center;
+    width: 3rem;
+}
+
+@media screen and (min-width: 1024px){
+    .classListLien {
+        display: flex;
+        justify-content: space-around;
+        width: 100vw;
+        gap: 7rem;
+    }
+
+    .promoData, .promoTssr, .promoDev{
+        width: 19rem;
+        margin: 1rem;
+    }
+
+    main{
+        height: auto;
+    }
+};
