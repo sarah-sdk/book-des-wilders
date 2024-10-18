@@ -1,145 +1,241 @@
 import studentWild from "./tableau.js";
-console.log(studentWild);
+import createTag from "./src/createTag.js";
+import createModal from "./createModal.js";
 
+const trombinoscope = document.querySelector(".trombinoscope");
+const bg = document.querySelector(".bg");
 
-function createCard(student) {
-    const trombinoscope = document.querySelector(".trombinoscope");
+function createCard(student, parent) {
+    const article = createTag("article", "card", null);
 
-    // Carte conteneur avec la classe 'card'
-    const article = document.createElement("article");
-    article.classList.add("card");
-    trombinoscope.appendChild(article);
-
-    // Recto de la carte (utilisation de figure pour l'image et figcaption pour le texte)
-    const cardFront = document.createElement("figure");
-    cardFront.classList.add("card-front");
-    article.appendChild(cardFront);
+    const figure = createTag("figure", "card-front", null);
+    article.appendChild(figure);
 
     // Verso de la carte (footer pour les détails)
-    const cardBack = document.createElement("footer");
-    cardBack.classList.add("card-back");
-    article.appendChild(cardBack);
+    const footer = createTag("footer", "card-back", null);
+    article.appendChild(footer);
 
     // Image au recto (dans figure)
     const img = document.createElement("img");
     img.classList.add("studentPicture");
     img.src = student.image;
     img.alt = `Photo de ${student.firstName} ${student.lastName}`;
-    cardFront.appendChild(img);
+    figure.appendChild(img);
 
     // Nom de l'étudiant dans une légende (figcaption)
-    const studentName = document.createElement("figcaption");
-    studentName.classList.add("name");
-    studentName.textContent = `${student.firstName} ${student.lastName}`;
-    cardFront.appendChild(studentName);
+    const studentName = createTag("figcaption", "name", `${student.firstName} ${student.lastName}`);
+    figure.appendChild(studentName);
 
     // Lien LinkedIn
+    if(student.linkedin){
     const linkedinRef = document.createElement("a");
     linkedinRef.classList.add("linkedin");
     linkedinRef.href = student.linkedin || "#";  // Lien vers LinkedIn spécifique ou par défaut
     linkedinRef.target = "_blank";
-    linkedinRef.ariaLabel = "Lien vers Linkedin";
-    cardFront.appendChild(linkedinRef);
+    figure.appendChild(linkedinRef);
     //icone Linkedin
     const linkedinIcon = document.createElement("img");
     linkedinIcon.src = "images/linkedin.svg";
-    linkedinIcon.alt = "Linkedin icon";
+    linkedinIcon.alt = `Lien vers Linkedin de ${student.firstName} ${student.lastName}`;
     linkedinRef.appendChild(linkedinIcon);
-    cardFront.appendChild(linkedinRef)
+    figure.appendChild(linkedinRef);
+    }
 
     //Lien GitHub 
+    if (student.github){
     const githubRef = document.createElement("a");
     githubRef.classList.add("github");
     githubRef.href = student.github || "#";  // Lien vers GitHub spécifique ou par défaut
     githubRef.target = "_blank";
-    cardFront.appendChild(githubRef);
+    figure.appendChild(githubRef);
     // Image Github
     const githubIcon = document.createElement("img");
     githubIcon.src = "images/github.svg"; // Chemin vers l'image SVG/PNG de GitHub
-    githubIcon.alt = "GitHub Icon";
+    githubIcon.alt = `Lien vers GitHub de ${student.firstName} ${student.lastName}`;
     githubRef.appendChild(githubIcon);
-    cardFront.appendChild(githubRef);
+    figure.appendChild(githubRef);
+    }
 
     // Date de naissance (utilisation de time pour la date)
     if (student.birthDate) {
-        const studentBirthDate = document.createElement("h3");
-        studentBirthDate.textContent = "Date de naissance :";
-        cardBack.appendChild(studentBirthDate);
+        const birthDate = createTag("h3", null, "Date de naissance :");
+        footer.appendChild(birthDate);
 
-        const studentAge = document.createElement("time");
-        studentAge.textContent = `${student.birthDate}`;
-        cardBack.appendChild(studentAge);
+        const age = createTag("time", null, `${student.birthDate}`);
+        footer.appendChild(age);
     }
 
     // Hobbies (liste de hobbies sous forme de paragraphes)
     if (student.hobbies) {
-        const studentHobbies = document.createElement("h3");
-        studentHobbies.textContent = "Hobbies :";
-        cardBack.appendChild(studentHobbies);
+        const title = createTag("h3", null, "Hobbies :");
+        footer.appendChild(title);
 
-        const hobbiesText = document.createElement("p");
-        hobbiesText.textContent = `${student.hobbies}`;
-        cardBack.appendChild(hobbiesText);
+        const hobbies = createTag("p", null, `${student.hobbies}`);
+        footer.appendChild(hobbies);
     }
 
     // Objectif professionnel
     if (student.proObjective) {
-        const proObject = document.createElement("h3");
-        proObject.textContent = "Objectif professionnel :";
-        cardBack.appendChild(proObject);
+        const title = createTag("h3", null, "Objectif professionnel :");
+        footer.appendChild(title);
 
-        const proObjectText = document.createElement("p");
-        proObjectText.textContent = `${student.proObjective}`;
-        cardBack.appendChild(proObjectText);
+        const objectives = createTag("p", null, `${student.proObjective}`);
+        footer.appendChild(objectives);
     }
 
     // Citation ou anecdote (utilisation de blockquote pour la citation)
     if (student.quote) {
-        const citaAnec = document.createElement("h3");
-        citaAnec.textContent = "Anecdote/Citation :";
-        cardBack.appendChild(citaAnec);
+        const title = createTag("h3", null, "Anecdote/Citation :");
+        footer.appendChild(title);
 
-        const citaAnecText = document.createElement("blockquote");
-        citaAnecText.textContent = `${student.quote}`;
-        cardBack.appendChild(citaAnecText);
+        const quote = createTag("blockquote", null, `${student.quote}`);
+        footer.appendChild(quote);
     }
-
-    // Ajout d'un événement de clic pour retourner la carte
-    article.addEventListener("click", () => {
-        article.classList.toggle("flipped");
-    });
-
-    if (student.promo === "DevWeb"){
+    if (student.promo === "DevWeb") {
         article.classList.add("devWeb");
     } else if (student.promo === "Data") {
         article.classList.add("data");
-    } else if (student.promo === "TSSR") {
+    } else {
         article.classList.add("tssr");
     }
-};
 
-studentWild.forEach((studentWild) => {
-    createCard(studentWild);
+    //rajoute toute la carte à mon trombinoscope
+    return parent.appendChild(article); 
+}
+
+studentWild.forEach((student) => {
+    const element = createCard(student, trombinoscope);
+
+    element.addEventListener("click", () => {
+
+        if (window.innerWidth < 1024) {
+            element.classList.toggle("flipped");
+        } else {
+            const modal = createModal(student, trombinoscope);
+
+            modal.show();
+
+            bg.classList.add("visibleGrid");
+
+            bg.addEventListener("click", () => {
+                modal.remove();
+                bg.classList.remove("visibleGrid");
+            });
+            modal.addEventListener("click", () =>{
+                modal.classList.toggle('flipped');
+              });
+            
+        }
+    })
 });
 
-
 /*Filtre pour la promo*/
-const promoFilter = document.querySelector('#promoFilter');
+const promoFilter = document.querySelector('.promoFilter');
 
-promoFilter.addEventListener('change', function (){
+promoFilter.addEventListener('change', function () {
     const selectedPromo = document.querySelector('input[name="promo"]:checked');
-    console.log(selectedPromo);
-    const trombi = document.querySelector('section');
-    trombi.innerHTML = '';
+    //const trombi = document.querySelector('section');
+    trombinoscope.innerHTML = ''; // supprimer les cartes du trombi
     studentWild.forEach((student) => {
-        if (selectedPromo.id === 'devWeb' && student.promo === 'DevWeb') {
-            createCard(student);
-        } else if (selectedPromo.id === 'data' && student.promo === 'Data') {
-            createCard(student);
-        } else if (selectedPromo.id === 'tssr' && student.promo === 'TSSR') {
-            createCard(student);
-        } else if (selectedPromo.id === 'all'){
-            createCard(student);
+        if (selectedPromo.className === 'devWeb' && student.promo === 'DevWeb') {
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
+        } else if (selectedPromo.className === 'data' && student.promo === 'Data') {
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
+        } else if (selectedPromo.className === 'tssr' && student.promo === 'TSSR') {
+
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
+        } else if (selectedPromo.className === 'all') {
+
+            const element = createCard(student, trombinoscope);
+
+            element.addEventListener("click", () => {
+
+                if (window.innerWidth < 1024) {
+                    element.classList.toggle("flipped");
+                } else {
+                    const modal = createModal(student, trombinoscope);
+        
+                    modal.show();
+        
+                    bg.classList.add("visibleGrid");
+        
+                    bg.addEventListener("click", () => {
+                        modal.remove();
+                        bg.classList.remove("visibleGrid");
+                    });
+                    modal.addEventListener("click", () =>{
+                        modal.classList.toggle('flipped');
+                      });
+                    
+                }
+            })
         }
     });
+
 });
